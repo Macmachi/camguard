@@ -2,7 +2,7 @@
 """
 # CamGuard_v0.4
 # Arnaud Ricci 
-# Version : 1.0 
+# Version : 1.0.1
 """
 import configparser
 import cv2
@@ -17,8 +17,11 @@ import datetime
 from pathlib import Path
 from asyncio import Queue
 
+script_dir = os.path.dirname(os.path.realpath(__file__))
+config_path = os.path.join(script_dir, 'config.ini')
+
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read(config_path)
 
 #Défini dans le fichier config.ini
 motion_threshold = int(config['DETECTION']['motion_threshold'])
